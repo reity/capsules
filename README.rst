@@ -27,6 +27,16 @@ Adding the `capsules` decorator to a function definition will (1) automatically 
     def double(x):
         return x + x
 
+Testing and Conventions
+-----------------------
+All unit tests are executed when using `nose <https://nose.readthedocs.io/>`_ (see ``setup.cfg`` for configution details)::
+
+    nosetests
+
+Style conventions are enforced using `Pylint <https://www.pylint.org/>`_::
+
+    pylint capsules
+
 Contributions
 -------------
 In order to contribute to the source code, open an issue or submit a pull request on the GitHub page for this library.

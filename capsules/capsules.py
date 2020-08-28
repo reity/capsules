@@ -9,7 +9,6 @@ import importlib
 import os
 import types
 import inspect
-import uuid
 
 def capsules(function):
     """
