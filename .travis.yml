@@ -10,6 +10,7 @@ matrix:
         - "3.8"
       install:
         - pip install pylint
+        - pip install coveralls
         - pip install .
     - os: osx
       language: generic
@@ -19,6 +20,7 @@ matrix:
         - sudo python3.8 -m pip install setuptools
       install:
         - sudo python3.8 -m pip install pylint
+        - pip install coveralls
         - sudo python3.8 -m pip install nose
         - sudo python3.8 -m pip install .
     - os: windows
@@ -28,6 +30,7 @@ matrix:
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
       install:
         - pip install pylint
+        - pip install coveralls
         - pip install nose
         - pip install .
 script:
