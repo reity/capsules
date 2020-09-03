@@ -4,11 +4,14 @@ capsules
 
 Python library for depositing a function definition inside a temporary module file (mostly for use with multiprocessing and Jupyter Notebook).
 
-|pypi|
+|pypi| |travis|
 
 .. |pypi| image:: https://badge.fury.io/py/capsules.svg
    :target: https://badge.fury.io/py/capsules
    :alt: PyPI version and link.
+
+.. |travis| image:: https://travis-ci.com/reity/capsules.svg?branch=master
+    :target: https://travis-ci.com/reity/capsules
 
 Package Installation and Usage
 ------------------------------
