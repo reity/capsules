@@ -47,4 +47,4 @@ def capsules(function):
     return getattr(module, function.__name__)
 
 if __name__ == "__main__":
-    doctest.testmod()
+    doctest.testmod()  # pragma: no cover
