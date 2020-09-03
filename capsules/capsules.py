@@ -29,7 +29,7 @@ def capsules(function):
 
     context_qualified_module = __name__
     context_qualified_path = __name__.replace(".", "/")
-    directory = '/__capsules__/' + context_qualified_path + '/'
+    directory = '/__capsules__/' + context_qualified_path
     module_name = '__capsules__.' + context_qualified_module + '.' + function.__name__
 
     if not os.path.exists('.' + directory):
