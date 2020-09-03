@@ -10,16 +10,19 @@ if os.path.exists('./__capsules__'):
     shutil.rmtree('./__capsules__')
 
 # Definitions of functions used in unit tests.
+global identity
 identity = lambda x: x
 
+global double
 @capsules
 def double(x):
     return x + x
 
+global square
 def square(x):
     return x * x
-square = capsules(square)
 
+global power
 exec('def power(x): return x**x')
 
 class Test_capsules(TestCase):
@@ -32,6 +35,7 @@ class Test_capsules(TestCase):
             self.assertEqual(str(error), 'input is not a function')
 
     def test_lambda(self):
+        global identity
         self.assertRaises(ValueError, capsules, identity)
         try:
             capsules(identity)
@@ -40,6 +44,7 @@ class Test_capsules(TestCase):
             self.assertEqual(str(error), 'lambda functions are not supported')
 
     def test_no_source(self):
+        global power
         self.assertRaises(OSError, capsules, power)
         try:
             capsules(power)
@@ -48,7 +53,10 @@ class Test_capsules(TestCase):
             self.assertEqual(str(error), 'could not get source code')
 
     def test_decorator(self):
+        global double
         self.assertTrue(double(2) == 4)
 
     def test_direct(self):
+        global square
+        square = capsules(square)
         self.assertTrue(square(3) == 9)
