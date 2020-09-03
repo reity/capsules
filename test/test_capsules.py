@@ -1,7 +1,13 @@
+import shutil
 from unittest import TestCase
 
 from capsules.capsules import capsules
 
+# Remove directory if it exists to ensure
+# tests have full coverage.
+shutil.rmtree('./__capsules__')
+
+# Definitions of functions used in unit tests.
 identity = lambda x: x
 
 @capsules
