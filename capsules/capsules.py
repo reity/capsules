@@ -35,15 +35,17 @@ def capsules(function):
     if not os.path.exists('.' + directory):
         os.makedirs('.' + directory)
 
-    filepath = '.' + directory + '/' + function.__name__ + '.py'
-    with open(filepath, 'w') as file:
+    path_file = '.' + directory + '/' + function.__name__ + '.py'
+    with open(path_file, 'w') as file:
         definition = source
         lines = definition.split('\n')
         if lines[0] == '@capsules':
             definition = '\n'.join(lines[1:])
         file.write(definition)
 
-    module = importlib.import_module(module_name, package=function.__name__)
+    spec = importlib.util.spec_from_file_location(module_name, path_file)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
     return getattr(module, function.__name__)
 
 if __name__ == "__main__":
